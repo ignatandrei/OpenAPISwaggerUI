@@ -16,5 +16,39 @@
 		<PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="7.1.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.1.0" />
 	</ItemGroup>
+	<PropertyGroup>
+		<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\README.md" Link="README.md" Pack="true" PackagePath="\" />
+		<None Include="..\..\..\README.md" Link="README.txt" Pack="true" PackagePath="\" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
+		<None Include="..\..\..\docs\ico.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<Version>9.2024.1215.1049</Version>		
+		<Authors>Andrei Ignat</Authors>
+		<Description>This package adds many swagger UI to </Description>
+		<Title>OpenAPISwaggerUI</Title>
+		<PackageTags>C#;.NET;.NET Core;OpenAPI;Swagger;UI;SwaggerUI</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>ico.png</PackageIcon>
+		<RepositoryUrl>https://github.com/ignatandrei/OpenAPISwaggerUI</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/ignatandrei/OpenAPISwaggerUI</PackageProjectUrl>
+		<RepositoryType>GIT</RepositoryType>
+		<Copyright>MIT</Copyright>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<IncludeSymbols>true</IncludeSymbols>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<Deterministic>true</Deterministic>
+		<DebugType>embedded</DebugType>
+
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
 
 </Project>
