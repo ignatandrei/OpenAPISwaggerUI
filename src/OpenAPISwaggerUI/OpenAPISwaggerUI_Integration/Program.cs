@@ -14,13 +14,11 @@ var app = builder.Build();
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
-
+//app.UseHttpsRedirection();
 var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
-
 app.UseOpenAPISwaggerUI();
 
 app.MapGet("/weatherforecast", () =>
