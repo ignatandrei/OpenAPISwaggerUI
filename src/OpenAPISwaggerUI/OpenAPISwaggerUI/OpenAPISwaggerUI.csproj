@@ -34,7 +34,7 @@
 		<PackageReference Include="RazorBlade" Version="0.7.0" PrivateAssets="all" ReferenceOutputAssembly="false" OutputItemType="Analyzer" />
 	</ItemGroup>
 	<PropertyGroup>
-		<Version>9.2024.1215.1049</Version>		
+		<Version>9.2024.1215.2209</Version>		
 		<Authors>Andrei Ignat</Authors>
 		<Description>This package adds many swagger UI to </Description>
 		<Title>OpenAPISwaggerUI</Title>
