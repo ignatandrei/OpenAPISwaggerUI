@@ -3,9 +3,11 @@
 
 name: .NET
 
+
 on:
   push:
     branches: [ "main" ]
+    tags: [ 'v*' ] # Listen for tag pushes that match version tags
   pull_request:
     branches: [ "main" ]
 
@@ -19,7 +21,9 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: |
+          9.0.x
+          
     - name: Restore dependencies
       run: |
         cd src
@@ -31,4 +35,24 @@ jobs:
         cd src
         cd OpenAPISwaggerUI
         dotnet r pack
+    - name: 'Upload nuget'
+      uses: actions/upload-artifact@v4
+      with:
+        name: OpenApiSwagger_Nuget_${{github.run_number}}
+        path: src/OpenAPISwaggerUI/output
+        retention-days: 1
+
+    - name: push to nuget
+      if: startsWith(github.ref, 'refs/tags/v') # This line ensures the step runs only if a tag version is present
+      run: |
+        dir src/OpenAPISwaggerUI/output/*.*
+        echo '1'
+        dir src/OpenAPISwaggerUI/output/*.symbols.nupkg  
+        echo '2'
+        cd src
+        cd OpenAPISwaggerUI
+        cd output
+        dotnet nuget push "*.symbols.nupkg" --api-key  ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+        
+  
     
