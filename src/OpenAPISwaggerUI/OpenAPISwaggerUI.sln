@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35507.96 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAPISwaggerUI_Integration", "OpenAPISwaggerUI_Integration\OpenAPISwaggerUI_Integration.csproj", "{4616116B-7876-4E93-A6E1-D0DAFDD1042E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenAPISwaggerUI", "OpenAPISwaggerUI\OpenAPISwaggerUI.csproj", "{9AD61EF7-3661-4CB9-9073-CAC51DDF054E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4616116B-7876-4E93-A6E1-D0DAFDD1042E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4616116B-7876-4E93-A6E1-D0DAFDD1042E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4616116B-7876-4E93-A6E1-D0DAFDD1042E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4616116B-7876-4E93-A6E1-D0DAFDD1042E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AD61EF7-3661-4CB9-9073-CAC51DDF054E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AD61EF7-3661-4CB9-9073-CAC51DDF054E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AD61EF7-3661-4CB9-9073-CAC51DDF054E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AD61EF7-3661-4CB9-9073-CAC51DDF054E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {794BFA1D-C500-4B08-B36B-F6BAAE46EB12}
+	EndGlobalSection
+EndGlobal

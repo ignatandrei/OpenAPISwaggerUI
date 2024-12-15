@@ -1,0 +1,6 @@
+@OpenAPISwaggerUI_Integration_HostAddress = http://localhost:5109
+
+GET {{OpenAPISwaggerUI_Integration_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

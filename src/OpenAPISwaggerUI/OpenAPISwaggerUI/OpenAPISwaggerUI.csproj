@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0" />
+		<PackageReference Include="NetCore2Blockly" Version="9.2024.1206.813" />
+		<PackageReference Include="NSwag.AspNetCore" Version="14.2.0" />
+		<PackageReference Include="Scalar.AspNetCore" Version="1.2.48" />
+		<PackageReference Include="Swashbuckle.AspNetCore.ReDoc" Version="7.1.0" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="7.1.0" />
+	</ItemGroup>
+
+</Project>
