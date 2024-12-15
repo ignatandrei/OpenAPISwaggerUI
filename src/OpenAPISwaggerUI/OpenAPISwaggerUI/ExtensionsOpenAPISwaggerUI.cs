@@ -15,16 +15,17 @@ public static class ExtensionsOpenAPISwaggerUI
             options.RoutePrefix = "swagger-Swashbuckle";
         });
         //scalar
-        //goto scalar/v1
+        //goto swagger-scalar/v1
         app.MapScalarApiReference(opt =>
         {
-
+            opt.EndpointPathPrefix = "/swagger-scalar/{documentName}";
         });
         //redoc
         //goto /api-docs
         app.UseReDoc(options =>
         {
             options.SpecUrl("/openapi/v1.json");
+            options.RoutePrefix = "swagger-redoc";
         });
 
         //goto /nswag-swagger
