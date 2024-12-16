@@ -14,5 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\OpenAPISwaggerUI\OpenAPISwaggerUI.csproj" />
   </ItemGroup>
-
+	<ItemGroup>
+		<InternalsVisibleTo Include="OAPISUI_Test" />
+	</ItemGroup>
 </Project>
