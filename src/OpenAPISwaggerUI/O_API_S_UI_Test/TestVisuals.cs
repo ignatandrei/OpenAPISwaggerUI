@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Playwright;
-
 namespace O_API_S_UI_Test;
 
 [TestClass]
-public sealed class Test1
+public sealed class TestVisuals
 {
     static CustomWebApplicationFactory factory;
     [AssemblyInitialize]
@@ -58,10 +57,28 @@ public sealed class Test1
             //RecordVideoDir = curDirVideos
         });
         var page = await browser.NewPageAsync();
-        await page.GotoAsync(baseAddress + "swagger");
+        var pageSwagger = await page.GotoAsync(baseAddress + "swagger");
         await page.ScreenshotAsync(new PageScreenshotOptions { Path = "swagger.png" });
+        var content= await page.ContentAsync();
+        var hrefs = await page.Locator("a").AllAsync();
+        
+        Assert.IsTrue(hrefs.Count > 0);
+        foreach (var li in hrefs)
+        {
+            var text= await li.TextContentAsync();
+            var href = await li.GetAttributeAsync("href");
+            ArgumentNullException.ThrowIfNull(href);
+            if(href.StartsWith("/"))
+            {
+                href =  href[1..];
+            }
+            var pageNew = await browser.NewPageAsync();
+            await pageNew.GotoAsync(baseAddress+ href);
+            await pageNew.WaitForLoadStateAsync(LoadState.NetworkIdle);
+            await pageNew.ScreenshotAsync(new PageScreenshotOptions { Path = $"{text}.png" });
 
 
+        }
     }
 
 }
