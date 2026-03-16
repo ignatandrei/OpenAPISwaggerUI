@@ -17,10 +17,8 @@ public static class ExtensionsOpenAPISwaggerUI
         });
         //scalar
         //goto swagger-scalar/v1
-        app.MapScalarApiReference(opt =>
-        {
-            opt.EndpointPathPrefix = "/swagger-scalar/{documentName}";
-        });
+        app.MapScalarApiReference("/swagger-scalar/");
+        
         //redoc
         //goto /api-docs
         app.UseReDoc(options =>

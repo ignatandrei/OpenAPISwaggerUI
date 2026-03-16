@@ -2,6 +2,8 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
 name: .NET
+permissions:
+  id-token: write   # required for GitHub OIDC
 
 
 on:
@@ -15,6 +17,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
+
 
     steps:
     - uses: actions/checkout@v4
@@ -22,7 +28,7 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: |
-          9.0.x
+          10.0.x
           
     - name: Restore dependencies
       run: |
@@ -41,6 +47,13 @@ jobs:
         name: OpenApiSwagger_Nuget_${{github.run_number}}
         path: src/OpenAPISwaggerUI/output
         retention-days: 1
+    - name: NuGet Login
+      uses: NuGet/login@v1
+      if: startsWith(github.ref, 'refs/tags/v') # This line ensures the step runs only if a tag version is present
+      id: login
+      with:
+          user: ignatandrei
+    
 
     - name: push to nuget
       if: startsWith(github.ref, 'refs/tags/v') # This line ensures the step runs only if a tag version is present
@@ -52,7 +65,7 @@ jobs:
         cd src
         cd OpenAPISwaggerUI
         cd output
-        dotnet nuget push "*.symbols.nupkg" --api-key  ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+        dotnet nuget push "*.symbols.nupkg" --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
         
   
     
